@@ -111,7 +111,6 @@ return /******/ (function(modules) { // webpackBootstrap
 exports.ssrComponents = {
   "component---cache-dev-404-page-js": (preferDefault(__webpack_require__(/*! ./.cache/dev-404-page.js */ "./.cache/dev-404-page.js"))),
   "component---src-pages-404-js": (preferDefault(__webpack_require__(/*! ./src/pages/404.js */ "./src/pages/404.js"))),
-  "component---src-pages-about-js": (preferDefault(__webpack_require__(/*! ./src/pages/about.js */ "./src/pages/about.js"))),
   "component---src-pages-blog-index-js": (preferDefault(__webpack_require__(/*! ./src/pages/blog/index.js */ "./src/pages/blog/index.js"))),
   "component---src-pages-blog-mdx-slug-js": (preferDefault(__webpack_require__(/*! ./src/pages/blog/{mdx.slug}.js */ "./src/pages/blog/{mdx.slug}.js"))),
   "component---src-pages-index-js": (preferDefault(__webpack_require__(/*! ./src/pages/index.js */ "./src/pages/index.js")))
@@ -8248,31 +8247,6 @@ const NotFoundPage = () => {
 
 /***/ }),
 
-/***/ "./src/pages/about.js":
-/*!****************************!*\
-  !*** ./src/pages/about.js ***!
-  \****************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/layout */ "./src/components/layout.js");
-
-
-
-const AboutPage = () => {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_components_layout__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    pageTitle: "About Me"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("p", null, "I am building a great website.  You know you like it."));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (AboutPage);
-
-/***/ }),
-
 /***/ "./src/pages/blog/index.js":
 /*!*********************************!*\
   !*** ./src/pages/blog/index.js ***!
@@ -8331,14 +8305,13 @@ __webpack_require__.r(__webpack_exports__);
 const BlogPost = ({
   data
 }) => {
-  // highlight-line
-  const Image = Object(gatsby_plugin_image__WEBPACK_IMPORTED_MODULE_2__["getImage"])(data.mdx.formatter.hero_image);
+  const image = Object(gatsby_plugin_image__WEBPACK_IMPORTED_MODULE_2__["getImage"])(data.mdx.frontmatter.hero_image);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_components_layout__WEBPACK_IMPORTED_MODULE_3__["default"], {
     pageTitle: data.mdx.frontmatter.title
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("p", null, "Posted: ", data.mdx.frontmatter.date), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](gatsby_plugin_image__WEBPACK_IMPORTED_MODULE_2__["GatsbyImage"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("p", null, data.mdx.frontmatter.date), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](gatsby_plugin_image__WEBPACK_IMPORTED_MODULE_2__["GatsbyImage"], {
     image: image,
     alt: data.mdx.frontmatter.hero_image_alt
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("p", null, "Photo Credit: ", " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("a", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("p", null, "Photo Credit:", " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("a", {
     href: data.mdx.frontmatter.hero_image_credit_link
   }, data.mdx.frontmatter.hero_image_credit_text)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](gatsby_plugin_mdx__WEBPACK_IMPORTED_MODULE_1__["MDXRenderer"], null, data.mdx.body));
 };

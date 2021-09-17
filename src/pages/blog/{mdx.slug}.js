@@ -4,29 +4,29 @@ import { MDXRenderer } from 'gatsby-plugin-mdx' // highlight-line
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import Layout from '../../components/layout'
 
-const BlogPost = ({ data }) => { // highlight-line
-  const Image = getImage(data.mdx.formatter.hero_image)
+const BlogPost = ({ data }) => {
+  const image = getImage(data.mdx.frontmatter.hero_image)
   return (
-    
     <Layout pageTitle={data.mdx.frontmatter.title}>
-      <p>Posted: {data.mdx.frontmatter.date}</p> 
+      <p>{data.mdx.frontmatter.date}</p>
       <GatsbyImage
         image={image}
         alt={data.mdx.frontmatter.hero_image_alt}
-        />
-        <p>
-          Photo Credit: {" "}
-          <a href={data.mdx.frontmatter.hero_image_credit_link}>
-            {data.mdx.frontmatter.hero_image_credit_text}
-          </a>
-          </p>
-       <MDXRenderer>
-         {data.mdx.body} 
-       </MDXRenderer> 
-    
+      />
+      
+      <p>
+        Photo Credit:{" "}
+        <a href={data.mdx.frontmatter.hero_image_credit_link}>
+          {data.mdx.frontmatter.hero_image_credit_text}
+        </a>
+      </p>
+      
+      <MDXRenderer>
+        {data.mdx.body}
+      </MDXRenderer>
     </Layout>
   )
-}
+  }
 
 export const query = graphql`
   query ($id: String) {
@@ -43,6 +43,7 @@ export const query = graphql`
           }
         }
       }
+      body
     }
   }
 `
