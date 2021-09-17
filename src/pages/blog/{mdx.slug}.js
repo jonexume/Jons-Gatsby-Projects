@@ -29,8 +29,8 @@ const BlogPost = ({ data }) => { // highlight-line
 }
 
 export const query = graphql`
-  query ($slug: String) {
-    mdx(slug: {eq: $slug}) {
+  query ($id: String) {
+    mdx(id: {eq: $id}) {
       frontmatter {
         title
         date(formatString: "MMMM D, YYYY")
